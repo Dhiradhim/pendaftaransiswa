@@ -22,17 +22,11 @@
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-					<!-- QUERY START -->
-						<?php
-						$query = mysqli_query($con, "SELECT * FROM konfigurasi") or die(mysqli_connect_error());
-						$row = mysqli_fetch_assoc($query);
-						$query_user = mysqli_query($con, "SELECT status_berkas,pesan_berkas,keputusan,pesan_nilai FROM upload_berkas INNER JOIN upload_nilai ON upload_berkas.nisn=upload_nilai.nisn WHERE upload_berkas.nisn='$nisn'") or die(mysqli_connect_error());
-						$row_user = mysqli_fetch_assoc($query_user);
-						?>
-					<!-- QUERY end -->
+
                   <div>
                     <div>
-                      <h4><?=$row['pengumuman'];?></h4>
+                      <h1>Hello, world!</h1>
+                      <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
                     </div>
                   </div>
 
@@ -47,28 +41,11 @@
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-				
+
                   <div>
                     <div>
-					<?php if($row_user['status_berkas']==0)
-					{
-						?>
-                      <h4>Sedang menunggu proses validasi berkas. </h4>
-					<?php 
-					} else if ($row_user['keputusan']==0)
-					{ ?>
-						<h4>Berkas anda sudah valid, saat ini sedang dalam proses seleksi nilai. </h4>
-					<?php
-					} else if ($row_user['keputusan']==1)
-					{ ?>
-						<h4>Selamat anda lolos seleksi PPDB SMK AZ ZAHRA SEPATAN, Silahkan tunggu informasi selanjutnya. </h4>
-					<?php
-					} else if ($row_user['keputusan']==2)
-					{ ?> 
-						<h4>mohon maaf,  anda tidak lolos seleksi PPDB SMK AZ ZAHRA SEPATAN </h4>
-					<?php
-					}
-					?>
+                      <h1>Hello, world!</h1>
+                      <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
                     </div>
                   </div>
 

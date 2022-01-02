@@ -1,3 +1,18 @@
+<?php  
+session_start();  
+include('koneksi.php');
+$nisn=$_SESSION['nisn'];
+$query_user = mysqli_query($con, "SELECT * FROM login WHERE nisn='$nisn'") or die(mysqli_connect_error());
+$row_user = mysqli_fetch_assoc($query_user);
+
+if($row_user['hak_akses']!=='siswa')
+{  
+  
+    header("Location: login.php");//redirect to login page to secure the welcome page without login access.  
+}  
+  
+?> 
+
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
@@ -23,7 +38,8 @@
     <link href="vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
     <!-- bootstrap-daterangepicker -->
     <link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-
+    <!-- bootstrap-datetimepicker -->
+    <link href="vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="build/css/custom.min.css" rel="stylesheet">
   </head>

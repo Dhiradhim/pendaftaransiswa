@@ -1,3 +1,8 @@
+<?php  
+session_start();//session starts here  
+  
+?> 
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,16 +36,16 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form>
+            <form method="post" action="login.php">
               <h1>Silahkan Login</h1>
               <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
+                <input type="text" name="nisn" class="form-control" placeholder="NISN" autofocus />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
+                <input type="password" name="password" class="form-control" placeholder="Password"/>
               </div>
               <div>
-                <a class="btn btn-success submit">LOGIN</a>
+				<button class="btn btn-success submit" type="submit" value="Login" name="login">LOGIN</button>
               </div>
 
               <div class="clearfix"></div>
@@ -65,22 +70,22 @@
 
         <div id="register" class="animate form registration_form">
           <section class="login_content">
-            <form>
+            <form method="post" action="register.php">
               <h1>Pendaftaran Akun</h1>
               <div>
-                <input type="text" class="form-control" placeholder="Nama Lengkap" required="" />
+                <input type="text" name="nama_lengkap" class="form-control" placeholder="Nama Lengkap" required="" />
               </div>
               <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
+                <input type="text" name="nisn" class="form-control" placeholder="NISN" required="" />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
+                <input type="password" name="password" class="form-control" placeholder="Password" required="" />
               </div>              
 			  <div>
-                <input type="password" class="form-control" placeholder="Confirm Password" required="" />
+                <input type="password" name="cpassword" class="form-control" placeholder="Confirm Password" required="" />
               </div>
               <div>
-                <a class="btn btn-success submit">DAFTAR</a>
+                <button class="btn btn-success submit" type="submit" value="Daftar" name="daftar">DAFTAR</button>
               </div>
 
               <div class="clearfix"></div>
@@ -106,3 +111,33 @@
     </div>
   </body>
 </html>
+
+<?php  
+  
+include("koneksi.php");  
+  
+if(isset($_POST['login']))  
+{  
+    $nisn=$_POST['nisn'];  
+    $password=md5($_POST['password']);   
+  
+    $run=mysqli_query($con, "select * from login WHERE nisn='$nisn' AND password='$password'");  
+	$xrun = mysqli_fetch_assoc($run);
+    if(mysqli_num_rows($run) > 0)  
+    {  
+        if($xrun['hak_akses']=='admin')
+		{
+			echo "<script>window.open('admin/index.php','_self')</script>";  
+			$_SESSION['nisn']=$xrun['nisn'];
+		}else 
+		{
+			echo "<script>window.open('index.php','_self')</script>";  
+			$_SESSION['nisn']=$xrun['nisn'];
+		}
+    }  
+    else  
+    {  
+      echo "<script>alert('NISN dan/atau Password salah!')</script>";  
+    }  
+}  
+?>  
