@@ -190,9 +190,9 @@
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Kartu Keluarga</label>
 											<div class="col-md-6 col-sm-6 ">
 												<?php
-												if ($row_berkas['status_kk']==1){
-													echo '<button class="btn btn-success" type="button" disabled="disabled">OK</button>';
-												} else if ($row_berkas['status_kk']==0) {
+												if ($row_berkas['status_berkas']==2){
+													echo '<button class="btn btn-success" type="button" disabled="disabled">Sudah Divalidasi</button>';
+												} else if ($row_berkas['status_berkas']==1) {
 													echo '<button class="btn btn-warning" type="button" disabled="disabled">Menunggu Validasi</button>';
 												} else {
 													echo '<button class="btn btn-success" type="button" disabled="disabled">NOT OK</button>';
@@ -204,9 +204,9 @@
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Akta Kelahiran</label>
 											<div class="col-md-6 col-sm-6 ">
 												<?php
-												if ($row_berkas['status_akte']==1){
-													echo '<button class="btn btn-success" type="button" disabled="disabled">OK</button>';
-												} else if ($row_berkas['status_akte']==0) {
+												if ($row_berkas['status_berkas']==2){
+													echo '<button class="btn btn-success" type="button" disabled="disabled">Sudah Divalidasi</button>';
+												} else if ($row_berkas['status_berkas']==1) {
 													echo '<button class="btn btn-warning" type="button" disabled="disabled">Menunggu Validasi</button>';
 												} else {
 													echo '<button class="btn btn-success" type="button" disabled="disabled">NOT OK</button>';
@@ -218,9 +218,9 @@
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">KTP Ayah</label>
 											<div class="col-md-6 col-sm-6 ">
 												<?php
-												if ($row_berkas['status_ktp_ayah']==1){
-													echo '<button class="btn btn-success" type="button" disabled="disabled">OK</button>';
-												} else if ($row_berkas['status_ktp_ayah']==0) {
+												if ($row_berkas['status_berkas']==2){
+													echo '<button class="btn btn-success" type="button" disabled="disabled">Sudah Divalidasi</button>';
+												} else if ($row_berkas['status_berkas']==1) {
 													echo '<button class="btn btn-warning" type="button" disabled="disabled">Menunggu Validasi</button>';
 												} else {
 													echo '<button class="btn btn-success" type="button" disabled="disabled">NOT OK</button>';
@@ -232,9 +232,9 @@
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">KTP Ibu</label>
 											<div class="col-md-6 col-sm-6 ">
 												<?php
-												if ($row_berkas['status_ktp_ibu']==1){
-													echo '<button class="btn btn-success" type="button" disabled="disabled">OK</button>';
-												} else if ($row_berkas['status_ktp_ibu']==0) {
+												if ($row_berkas['status_berkas']==2){
+													echo '<button class="btn btn-success" type="button" disabled="disabled">Sudah Divalidasi</button>';
+												} else if ($row_berkas['status_berkas']==1) {
 													echo '<button class="btn btn-warning" type="button" disabled="disabled">Menunggu Validasi</button>';
 												} else {
 													echo '<button class="btn btn-success" type="button" disabled="disabled">NOT OK</button>';
@@ -246,9 +246,9 @@
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">KIP</label>
 											<div class="col-md-6 col-sm-6 ">
 												<?php
-												if ($row_berkas['status_kip']==1){
-													echo '<button class="btn btn-success" type="button" disabled="disabled">OK</button>';
-												} else if ($row_berkas['status_kip']==0) {
+												if ($row_berkas['status_berkas']==2){
+													echo '<button class="btn btn-success" type="button" disabled="disabled">Sudah Divalidasi</button>';
+												} else if ($row_berkas['status_berkas']==1) {
 													echo '<button class="btn btn-warning" type="button" disabled="disabled">Menunggu Validasi</button>';
 												} else {
 													echo '<button class="btn btn-success" type="button" disabled="disabled">NOT OK</button>';
@@ -260,9 +260,9 @@
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">IJAZAH / SKL</label>
 											<div class="col-md-6 col-sm-6 ">
 												<?php
-												if ($row_berkas['status_ijazah']==1){
-													echo '<button class="btn btn-success" type="button" disabled="disabled">OK</button>';
-												} else if ($row_berkas['status_ijazah']==0) {
+												if ($row_berkas['status_berkas']==2){
+													echo '<button class="btn btn-success" type="button" disabled="disabled">Sudah Divalidasi</button>';
+												} else if ($row_berkas['status_berkas']==1) {
 													echo '<button class="btn btn-warning" type="button" disabled="disabled">Menunggu Validasi</button>';
 												} else {
 													echo '<button class="btn btn-success" type="button" disabled="disabled">NOT OK</button>';
@@ -282,7 +282,15 @@
 
 								  <div>
 									<div>
-									  <center><h1><?=$row_nilai['jumlah_nilai'];?></h1></center>
+									  <center><h1><?php if (empty($row_nilai['jumlah_nilai'])) { ?>	BELUM UPLOAD NILAI
+										<?php 
+										} else 
+										{
+										echo $row_nilai['jumlah_nilai'];
+										}
+										?>
+										 
+										</h1></center>
 									</div>
 								  </div>
 
@@ -299,9 +307,12 @@
 								  <div>
 									<div>
 										<?php
-										if ($row_nilai['keputusan']==1){
+										if (empty($row_nilai['keputusan']))
+										{
+											echo '<center><h1>BELUM UPLOAD NILAI</h1></center>';
+										} else if ($row_nilai['keputusan']==2){
 											echo '<center><h1>DITERIMA</h1></center>';
-										} else if ($row_nilai['keputusan']==0) {
+										} else if ($row_nilai['keputusan']==1) {
 											echo '<center><h1>MENUNGGU</h1></center>';
 										} else {
 											echo '<center><h1>TIDAK DITERIMA</h1></center>';

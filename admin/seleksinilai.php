@@ -58,7 +58,7 @@
                           <td><?=$row['nisn'];?></td>
                           <td><?=$row['nama_sekolah'];?></td>
                           <td>
-						  <a href="seleksinilaidetail.php?nisn=<?=$row['id']?>" class="btn btn-success btn-sm">Seleksi</a>
+						  <a href="seleksinilaidetail.php?nisn=<?=$row['nisn']?>" class="btn btn-success btn-sm">Seleksi</a>
 						  </td>
                         </tr>
 						<?php 

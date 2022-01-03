@@ -58,7 +58,7 @@
                           <td><?=$row['nisn'];?></td>
                           <td><?=$row['nama_sekolah'];?></td>
                           <td>
-						  <a href="validasiberkasdetail.php?nisn=<?=$row['id']?>" class="btn btn-success btn-sm">Validasi</a>
+						  <a href="validasiberkasdetail.php?nisn=<?=$row['nisn']?>" class="btn btn-success btn-sm">Validasi</a>
 						  </td>
                         </tr>
 						<?php 

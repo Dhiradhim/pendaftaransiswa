@@ -10,14 +10,16 @@
               <div class="profile_pic">
 				<?php
 				$nisn=$_SESSION['nisn'];
-				$query=mysqli_query($con, "select login.nama, biodata.foto from login INNER JOIN biodata ON login.nisn=biodata.nisn WHERE login.nisn='$nisn'");  
-				$row = mysqli_fetch_assoc($query);
+				$query_nama=mysqli_query($con, "select nama from login WHERE nisn='$nisn'");  
+				$row_nama = mysqli_fetch_assoc($query_nama);
+				$query_foto=mysqli_query($con, "select foto from biodata WHERE nisn='$nisn'");  
+				$row_foto = mysqli_fetch_assoc($query_foto);
 				?>
-                <img src="<?=$row['foto'];?>" alt="..." class="img-circle profile_img">
+                <img src="<?=$row_foto['foto'];?>" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Selamat Datang,</span>
-                <h2><?=$row['nama'];?></h2>
+                <h2><?=$row_nama['nama'];?></h2>
               </div>
             </div>
 

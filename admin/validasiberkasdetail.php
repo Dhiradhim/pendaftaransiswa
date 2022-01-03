@@ -27,6 +27,8 @@
 					$nisn=$_GET['nisn'];
 					$query=mysqli_query($con, "select * from biodata WHERE nisn='$nisn'");  
 					$row = mysqli_fetch_assoc($query);
+					$query_login=mysqli_query($con, "select * from login WHERE nisn='$nisn'");  
+					$row_login = mysqli_fetch_assoc($query_login);
 					$query_berkas=mysqli_query($con, "select * from upload_berkas WHERE nisn='$nisn'");  
 					$row_berkas = mysqli_fetch_assoc($query_berkas);
 					?>
@@ -43,13 +45,13 @@
 											<div class="item form-group">
 												<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nama Lengkap</label>
 												<div class="col-md-6 col-sm-6 ">
-													<input type="text" disabled="disabled" class="form-control" value="<?=$row_user['nama'];?>">
+													<input type="text" disabled="disabled" class="form-control" value="<?=$row_login['nama'];?>">
 												</div>
 											</div>
 											<div class="item form-group">
 												<label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">NISN </label>
 												<div class="col-md-6 col-sm-6 ">
-													<input type="text" disabled="disabled" class="form-control" value="<?=$row_user['nisn'];?>">
+													<input type="text" disabled="disabled" class="form-control" value="<?=$row_login['nisn'];?>">
 												</div>
 											</div>
 											<div class="item form-group">
@@ -247,7 +249,7 @@
 											<div class="col-md-6 col-sm-6 ">
 												
 												<?php
-												if($row_berkas['status_berkas']==0)
+												if($row_berkas['status_berkas']==1)
 												{
 													$nisn=$_GET['nisn'];
 													echo '<input type="hidden" value="'.$nisn.'"name="nisn">';

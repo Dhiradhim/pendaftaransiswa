@@ -24,10 +24,13 @@
                 <div class="x_content">
 					<!-- QUERY START -->
 						<?php
+						$nisn=$_SESSION['nisn'];
 						$query = mysqli_query($con, "SELECT * FROM konfigurasi") or die(mysqli_connect_error());
 						$row = mysqli_fetch_assoc($query);
-						$query_user = mysqli_query($con, "SELECT status_berkas,pesan_berkas,keputusan,pesan_nilai FROM upload_berkas INNER JOIN upload_nilai ON upload_berkas.nisn=upload_nilai.nisn WHERE upload_berkas.nisn='$nisn'") or die(mysqli_connect_error());
-						$row_user = mysqli_fetch_assoc($query_user);
+						$query_berkas = mysqli_query($con, "SELECT status_berkas,pesan_berkas FROM upload_berkas WHERE nisn='$nisn'") or die(mysqli_connect_error());
+						$row_berkas = mysqli_fetch_assoc($query_berkas);
+						$query_nilai = mysqli_query($con, "SELECT keputusan,pesan_nilai FROM upload_nilai WHERE nisn='$nisn'") or die(mysqli_connect_error());
+						$row_nilai = mysqli_fetch_assoc($query_nilai);
 						?>
 					<!-- QUERY end -->
                   <div>
@@ -50,23 +53,60 @@
 				
                   <div>
                     <div>
-					<?php if($row_user['status_berkas']==0)
+					<?php if(empty($row_berkas['status_berkas']))
 					{
-						?>
-                      <h4>Sedang menunggu proses validasi berkas. </h4>
+					?>
+						<h4>Silahkan mengisi biodata, melakukan upload berkas dan upload nilai.</h4><br>
+						<h4>Pesan : <?=$row_berkas['pesan_berkas'];?></h4>
 					<?php 
-					} else if ($row_user['keputusan']==0)
+					} else if ($row_berkas['status_berkas']==1)
+					{ ?>
+						<h4>Sedang menunggu proses validasi berkas. </h4>
+						<h4>Pesan : <?=$row_berkas['pesan_berkas'];?></h4>
+					<?php
+					} else if (empty($row_nilai['keputusan']) OR $row_nilai['keputusan']==1)
 					{ ?>
 						<h4>Berkas anda sudah valid, saat ini sedang dalam proses seleksi nilai. </h4>
-					<?php
-					} else if ($row_user['keputusan']==1)
+						<?php if (empty($row_nilai['pesan_nilai']))
+						{?>
+							<h4>Pesan :</h4>
+						<?php
+						} 
+						else 
+						{
+							?>
+							<h4>Pesan : <?=$row_nilai['pesan_nilai'];?></h4>
+						<?php
+						}
+					} else if ($row_nilai['keputusan']==2)
 					{ ?>
 						<h4>Selamat anda lolos seleksi PPDB SMK AZ ZAHRA SEPATAN, Silahkan tunggu informasi selanjutnya. </h4>
-					<?php
-					} else if ($row_user['keputusan']==2)
+						<?php if (empty($row_nilai['pesan_nilai']))
+						{?>
+							<h4>Pesan :</h4>
+						<?php
+						} 
+						else 
+						{
+							?>
+							<h4>Pesan : <?=$row_nilai['pesan_nilai'];?></h4>
+						<?php
+						}
+					
+					} else if ($row_nilai['keputusan']==3)
 					{ ?> 
-						<h4>mohon maaf,  anda tidak lolos seleksi PPDB SMK AZ ZAHRA SEPATAN </h4>
-					<?php
+						<h4>Mohon maaf,  anda tidak lolos seleksi PPDB SMK AZ ZAHRA SEPATAN </h4>
+						<?php if (empty($row_nilai['pesan_nilai']))
+						{?>
+							<h4>Pesan :</h4>
+						<?php
+						} 
+						else 
+						{
+							?>
+							<h4>Pesan : <?=$row_nilai['pesan_nilai'];?></h4>
+						<?php
+						}
 					}
 					?>
                     </div>

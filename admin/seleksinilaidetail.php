@@ -147,13 +147,13 @@
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Semua Nilai Valid?</label>
 											<div class="col-md-6 col-sm-6 ">
 												<?php
-												if($row['keputusan']==0)
+												if($row['keputusan']==1)
 												{
 													$nisn=$_GET['nisn'];
 													echo '<input type="hidden" value="'.$nisn.'"name="nisn">';
 													echo '<button class="btn btn-primary" type="submit">Hitung Nilai</button>';
 												}
-												else if($row['keputusan']==1)
+												else if($row['keputusan']==2)
 												{
 													echo '<button class="btn btn-success" type="submit" disabled>LOLOS SELEKSI</button>';
 												}
