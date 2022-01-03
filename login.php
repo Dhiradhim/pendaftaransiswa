@@ -129,7 +129,11 @@ if(isset($_POST['login']))
 		{
 			echo "<script>window.open('admin/index.php','_self')</script>";  
 			$_SESSION['nisn']=$xrun['nisn'];
-		}else 
+		} else if($xrun['hak_akses']=='kepsek')
+		{
+			echo "<script>window.open('kepsek/index.php','_self')</script>";  
+			$_SESSION['nisn']=$xrun['nisn'];
+		} else 
 		{
 			echo "<script>window.open('index.php','_self')</script>";  
 			$_SESSION['nisn']=$xrun['nisn'];

@@ -38,12 +38,12 @@
                           <th>Nama</th>
                           <th>NISN</th>
                           <th>Asal Sekolah</th>
-                          <th>Hasil</th>
+                          <th>Kelola</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <?php
-						$query = mysqli_query($con, "SELECT nisn,keputusan FROM upload_nilai ORDER BY id") or die(mysqli_connect_error());
+					  	<?php
+						$query = mysqli_query($con, "SELECT * FROM biodata ORDER BY id") or die(mysqli_connect_error());
 						$row = mysqli_fetch_assoc($query);
 						$count = 1;
 						do { ?>
@@ -52,27 +52,13 @@
 							$nisn=$row['nisn'];
 							$query_nama = mysqli_query($con, "SELECT nama FROM login WHERE nisn='$nisn' ") or die(mysqli_connect_error());
 							$row_nama = mysqli_fetch_assoc($query_nama);
-							$query_hasil = mysqli_query($con, "SELECT nama_sekolah FROM upload_nilai WHERE nisn='$nisn' ") or die(mysqli_connect_error());
-							$row_hasil = mysqli_fetch_assoc($query_hasil);
 						?>
                           <td><?=$count;?></td>
                           <td><?=$row_nama['nama'];?></td>
                           <td><?=$row['nisn'];?></td>
-                          <td><?=$row_hasil['nama_sekolah'];?></td>
+                          <td><?=$row['nama_sekolah'];?></td>
                           <td>
-						  <?php
-						  if ($row['keputusan']==1)
-						  {
-							  echo '<button class="btn btn-primary">MENUNGGU SELEKSI</button>';
-						  } else if ($row['keputusan']==2)
-						  {
-							  echo '<button class="btn btn-success">LOLOS SELEKSI</button>';
-						  } else
-						  {
-							  echo '<button class="btn btn-danger">TIDAK LOLOS SELEKSI</button>';
-						  }
-						  ?>
-						  
+						  <a href="seleksinilaidetail.php?nisn=<?=$row['nisn']?>" class="btn btn-success btn-sm">Seleksi</a>
 						  </td>
                         </tr>
 						<?php 

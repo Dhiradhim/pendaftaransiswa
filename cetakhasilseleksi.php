@@ -35,7 +35,7 @@
 						<div class="title_right">
 							<div class="col-md-2 col-sm-2 form-group pull-right">
 								<div class="input-group">
-									<button class="btn btn-primary" type="button">PRINT</button>
+									<button class="btn btn-primary" onclick="window.print()" type="button">PRINT</button>
 								</div>
 							</div>
 						</div>

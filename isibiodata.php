@@ -215,14 +215,11 @@
 												<input type="date" name="tanggal_lahir" class="form-control">
 											</div>
 										</div>
-										<div class="item form-group">
+										<div class="radio item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align">Jenis Kelamin </label>
 											<div class="col-md-6 col-sm-6 ">
-												<select class="form-control" required name="jenis_kelamin">
-													<option disabled selected>Pilih</option>
-													<option value="Laki-laki">Laki-Laki</option>
-													<option value="Perempuan">Perempuan</option>
-												</select>
+												<input type="radio" class="flat" value="Laki-laki" name="jenis_kelamin"> Laki-laki
+												<input type="radio" class="flat" value="Perempuan" name="jenis_kelamin"> Perempuan
 											</div>
 										</div>
 										<div class="item form-group">
@@ -251,9 +248,14 @@
 											</div>
 										</div>
 										<div class="item form-group">
-											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Jurusan SMK yang dipilih</label>
+											<label class="col-form-label col-md-3 col-sm-3 label-align">Jurusan </label>
 											<div class="col-md-6 col-sm-6 ">
-												<input id="middle-name" class="form-control" type="text" name="jurusan" required="required">
+												<select class="form-control" required name="jurusan">
+													<option disabled selected>Pilih</option>
+													<option value="Teknik Komputer dan Jaringan">Teknik Komputer dan Jaringan</option>
+													<option value="Otomatisasi dan Tata Kelola Perkantoran">Otomatisasi dan Tata Kelola Perkantoran</option>
+													<option value="Teknik Bisnis Sepeda Motor">Teknik Bisnis Sepeda Motor</option>
+												</select>
 											</div>
 										</div>
 										<div class="item form-group">
