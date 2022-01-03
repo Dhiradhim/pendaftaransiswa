@@ -2,6 +2,8 @@
 session_start();  
 include('../koneksi.php');
 $nisn=$_POST['nisn'];
+$nama=$_POST['nama'];
+$hak_akses=$_POST['hak_akses'];
 $password=md5($_POST['password']);
 $cpassword=md5($_POST['cpassword']);
 
@@ -17,8 +19,8 @@ else if ($password !== $cpassword)
 	echo "<script type='text/javascript'>alert('Password Tidak Cocok');</script>";
 	echo '<script>window.history.back()</script>';	
 }else{
-	$query = "INSERT into login (nisn,nama,password,hak_akses) values ('$nisn','Administrator','$password','admin')";
+	$query = "INSERT into login (nisn,nama,password,hak_akses) values ('$nisn','$nama','$password','$hak_akses')";
 	$update = mysqli_query($con, $query);
-	echo "<script type='text/javascript'>alert('Administrator baru sudah terdaftar, silahkan Login.');</script>";
+	echo "<script type='text/javascript'>alert('User baru sudah terdaftar, silahkan Login.');</script>";
 	echo '<script>window.location.href="konfigurasi.php"</script>';
 }?>

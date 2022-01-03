@@ -79,6 +79,22 @@
 											<div class="col-md-3 col-sm-6 ">
 												<input type="text" name="nisn" id="first-name" required="required" class="form-control ">
 											</div>
+										</div>	
+										<div class="item form-group">
+											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nama <span class="required">*</span></label>
+											<div class="col-md-3 col-sm-6 ">
+												<input type="text" name="nama" id="first-name" required="required" class="form-control ">
+											</div>
+										</div>										
+										<div class="item form-group">
+											<label class="col-form-label col-md-3 col-sm-3 label-align">Hak Akses </label>
+											<div class="col-md-2 col-sm-6 ">
+												<select class="form-control" required name="hak_akses">
+													<option disabled selected>Pilih</option>
+													<option value="admin">Administrator</option>
+													<option value="kepsek">Kepala Sekolah</option>
+												</select>
+											</div>
 										</div>
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Password <span class="required">*</span></label>
