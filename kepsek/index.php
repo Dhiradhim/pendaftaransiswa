@@ -36,35 +36,35 @@
                 </div>
                 <div class="x_content">
 			<div class=" top_tiles" style="margin: 10px 0;">
-              <div class="col-md-2 col-sm-3  tile">
+              <div class="col-md-2 col-sm-3  tile dark">
                 <span>Jumlah Peserta</span>
                 <h2><?=$row_jumlah;?></h2>
                 <span class="sparkline_one" style="height: 160px;">
                       <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
                   </span>
               </div>
-              <div class="col-md-2 col-sm-3  tile">
+              <div class="col-md-2 col-sm-3  tile purple">
                 <span>Siap Validasi Berkas</span>
                 <h2><?=$row_berkas;?></h2>
                 <span class="sparkline_one" style="height: 160px;">
                       <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
                   </span>
               </div>
-              <div class="col-md-2 col-sm-3  tile">
+              <div class="col-md-2 col-sm-3  tile blue">
                 <span>Siap Seleksi Nilai</span>
                 <h2><?=$row_nilai;?></h2>
                 <span class="sparkline_one" style="height: 160px;">
                       <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 125px;"></canvas>
                   </span> 
               </div>
-              <div class="col-md-2 col-sm-3  tile">
+              <div class="col-md-2 col-sm-3  tile green">
                 <span>Lulus Seleksi</span>
                 <h2><?=$row_lulus;?></h2>
                 <span class="sparkline_one" style="height: 160px;">
                       <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
                   </span>
               </div>
-              <div class="col-md-2 col-sm-3  tile">
+              <div class="col-md-2 col-sm-3  tile red">
                 <span>Tidak Lulus Seleksi</span>
                 <h2><?=$row_tidak;?></h2>
                 <span class="sparkline_one" style="height: 160px;">
