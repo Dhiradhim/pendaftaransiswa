@@ -25,7 +25,7 @@
 					<!-- QUERY START -->
 					<?php 
 						$nisn=$_SESSION['nisn'];
-						$query_berkas=mysqli_query($con, "select ijazah_belakang from upload_berkas WHERE nisn='$nisn'");  
+						$query_berkas=mysqli_query($con, "select ijazah_belakang,status_berkas from upload_berkas WHERE nisn='$nisn'");  
 						$row_berkas = mysqli_fetch_assoc($query_berkas);
 						$query=mysqli_query($con, "select * from upload_nilai WHERE nisn='$nisn'");  
 						$row = mysqli_fetch_assoc($query);
@@ -34,7 +34,11 @@
 							echo "<script type='text/javascript'>alert('Silahkan upload berkas terlebih dahulu.');</script>";
 							echo '<script>window.location.href="uploadberkas.php"</script>';
 						}
-						else if (mysqli_num_rows($query) > 0)
+						else if($row_berkas['status_berkas']==1) 
+						{
+							echo "<script type='text/javascript'>alert('Sedang dalam proses Validasi Berkas.');</script>";
+							echo '<script>window.location.href="index.php"</script>';
+						} else if ($row_berkas['status_berkas']==3)
 						{
 					?>
 					<!-- QUERY END -->

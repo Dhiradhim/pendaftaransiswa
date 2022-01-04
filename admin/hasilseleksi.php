@@ -52,7 +52,7 @@
 							$nisn=$row['nisn'];
 							$query_nama = mysqli_query($con, "SELECT nama FROM login WHERE nisn='$nisn' ") or die(mysqli_connect_error());
 							$row_nama = mysqli_fetch_assoc($query_nama);
-							$query_hasil = mysqli_query($con, "SELECT nama_sekolah FROM upload_nilai WHERE nisn='$nisn' ") or die(mysqli_connect_error());
+							$query_hasil = mysqli_query($con, "SELECT nama_sekolah FROM biodata WHERE nisn='$nisn' ") or die(mysqli_connect_error());
 							$row_hasil = mysqli_fetch_assoc($query_hasil);
 						?>
                           <td><?=$count;?></td>

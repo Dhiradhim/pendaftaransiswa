@@ -16,6 +16,8 @@ $mulok=$_POST['mulok'];
 $jumlah_nilai=$pai+$ppkn+$bahasa_indonesia+$matematika+$ipa+$ips+$bahasa_inggris+$seni_budaya+$pjok+$prakarya+$mulok;
 $query = "INSERT into upload_nilai (nisn,pai,ppkn,bahasa_indonesia,matematika,ipa,ips,bahasa_inggris,seni_budaya,pjok,prakarya,mulok,jumlah_nilai) values ('$nisn','$pai','$ppkn','$bahasa_indonesia','$matematika','$ipa','$ips','$bahasa_inggris','$seni_budaya','$pjok','$prakarya','$mulok','$jumlah_nilai')";
 $sql=mysqli_query($con, $query);
+$query = "UPDATE upload_berkas SET status_berkas='3' WHERE nisn='$nisn'";
+$sql=mysqli_query($con, $query);
 echo "<script type='text/javascript'>alert('Data berhasil disimpan.');</script>";
 echo '<script>window.location.href="uploadnilai.php"</script>';
 
