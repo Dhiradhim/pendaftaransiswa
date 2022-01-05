@@ -249,7 +249,7 @@
 											<div class="col-md-6 col-sm-6 ">
 												
 												<?php
-												if($row_berkas['status_berkas']==1)
+												if($row_berkas['status_berkas']==2)
 												{
 													$nisn=$_GET['nisn'];
 													echo '<input type="hidden" value="'.$nisn.'"name="nisn">';

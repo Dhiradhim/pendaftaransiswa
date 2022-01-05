@@ -43,27 +43,52 @@
                       </thead>
                       <tbody>
 					  	<?php
-						$query = mysqli_query($con, "SELECT * FROM biodata ORDER BY id") or die(mysqli_connect_error());
-						$row = mysqli_fetch_assoc($query);
+						$query_nisn = mysqli_query($con, "SELECT nisn FROM upload_berkas ORDER BY id") or die(mysqli_connect_error());
+						$row_nisn = mysqli_fetch_assoc($query_nisn);
 						$count = 1;
 						do { ?>
                         <tr>
 						<?php
-							$nisn=$row['nisn'];
+							if (empty($row_nisn['nisn']))
+							{
+								echo "<script type='text/javascript'>alert('Belum ada Siswa yang upload berkas.');</script>";
+								echo '<script>window.location.href="index.php"</script>';
+							} else {								
+							$nisn=$row_nisn['nisn'];
+							$query = mysqli_query($con, "SELECT * FROM biodata WHERE nisn='$nisn' ORDER BY id") or die(mysqli_connect_error());	
+							$row = mysqli_fetch_assoc($query);
 							$query_nama = mysqli_query($con, "SELECT nama FROM login WHERE nisn='$nisn' ") or die(mysqli_connect_error());
 							$row_nama = mysqli_fetch_assoc($query_nama);
+							$query_berkas = mysqli_query($con, "SELECT status_berkas FROM upload_berkas WHERE nisn='$nisn' ") or die(mysqli_connect_error());
+							$row_berkas = mysqli_fetch_assoc($query_berkas);
+							
 						?>
                           <td><?=$count;?></td>
                           <td><?=$row_nama['nama'];?></td>
                           <td><?=$row['nisn'];?></td>
                           <td><?=$row['nama_sekolah'];?></td>
                           <td>
-						  <a href="validasiberkasdetail.php?nisn=<?=$row['nisn']?>" class="btn btn-success btn-sm">Validasi</a>
+						  <?php
+						  if ($row_berkas['status_berkas']==1)
+						  {
+						  ?>
+						  <a href="#" class="btn btn-warning btn-sm">Belum Upload Berkas</a>
+						  <?php
+						  } else if ($row_berkas['status_berkas']==2)
+						  {
+						  ?>
+						  <a href="validasiberkasdetail.php?nisn=<?=$row['nisn']?>" class="btn btn-danger btn-sm">Belum Validasi</a>
+						  <?php
+						  } else 
+						  {
+						  ?>
+						  <a href="validasiberkasdetail.php?nisn=<?=$row['nisn']?>" class="btn btn-success btn-sm">Sudah Validasi</a>
+						  <?php } ?>
 						  </td>
                         </tr>
 						<?php 
 						$count++;
-						} while ($row = mysqli_fetch_assoc($query)); 
+							}} while ($row = mysqli_fetch_assoc($query)); 
 						?>
                       </tbody>
                     </table>

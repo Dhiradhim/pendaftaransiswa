@@ -60,6 +60,8 @@ if (in_array($file_ext_kk,$allowed_file_types))
 							// Insert to DATABASE
 							$query = "INSERT into upload_berkas (nisn,kartu_keluarga,akte_kelahiran,ktp_ayah,ktp_ibu,kip,ijazah_depan,ijazah_belakang) values ('$nisn','$db_kartu_keluarga','$db_akte_kelahiran','$db_ktp_ayah','$db_ktp_ibu','$db_kip','$db_ijazah_depan','$db_ijazah_belakang')";
 							$sql=mysqli_query($con, $query);
+							$query1 = "UPDATE upload_berkas SET status_berkas='2'";
+							$sql1=mysqli_query($con, $query1);
 							echo "<script type='text/javascript'>alert('Data berhasil disimpan.');</script>";
 							echo '<script>window.location.href="uploadberkas.php"</script>';
 						}

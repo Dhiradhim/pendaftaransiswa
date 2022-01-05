@@ -16,7 +16,7 @@
 					<?php 
 					    $query_jumlah=mysqli_query($con, "select id from login WHERE hak_akses='siswa'");  
 						$row_jumlah = mysqli_num_rows($query_jumlah);						
-					    $query_berkas=mysqli_query($con, "select id from upload_berkas WHERE status_berkas='1'");  
+					    $query_berkas=mysqli_query($con, "select id from upload_berkas WHERE status_berkas='2'");  
 						$row_berkas = mysqli_num_rows($query_berkas);						
 					    $query_nilai=mysqli_query($con, "select id from upload_nilai WHERE keputusan='1'");  
 						$row_nilai= mysqli_num_rows($query_nilai);						

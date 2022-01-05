@@ -14,7 +14,7 @@
 <!-- TOP MENU END -->
 
 					<!-- QUERY START -->
-					<?php 
+					<?php 						
 						$nisn=$_SESSION['nisn'];
 						$query_berkas=mysqli_query($con, "select * from upload_berkas WHERE nisn='$nisn'");  
 						$row_berkas = mysqli_fetch_assoc($query_berkas);
@@ -22,6 +22,15 @@
 						$row_nilai = mysqli_fetch_assoc($query_nilai);
 						$query_biodata=mysqli_query($con, "select * from biodata WHERE nisn='$nisn'");  
 						$row_biodata = mysqli_fetch_assoc($query_biodata);
+						$query_keputusan=mysqli_query($con, "select keputusan from upload_nilai WHERE nisn='$nisn'"); 
+						$row_keputusan = mysqli_fetch_assoc($query_keputusan);
+						if(mysqli_num_rows($query_keputusan)==0 OR $row_keputusan['keputusan']==1) 
+						{
+							echo "<script type='text/javascript'>alert('Silahkan tunggu hasil Hitung Nilai.');</script>";
+							echo '<script>window.location.href="index.php"</script>';
+						} else
+						{
+						
 					?>
 					<!-- QUERY END -->
 					
@@ -190,12 +199,10 @@
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Kartu Keluarga</label>
 											<div class="col-md-6 col-sm-6 ">
 												<?php
-												if ($row_berkas['status_berkas']==2){
-													echo '<button class="btn btn-success" type="button" disabled="disabled">Sudah Divalidasi</button>';
-												} else if ($row_berkas['status_berkas']==1) {
-													echo '<button class="btn btn-warning" type="button" disabled="disabled">Menunggu Validasi</button>';
+												if ($row_berkas['status_berkas']==1){
+													echo '<button class="btn btn-warning" type="button" disabled="disabled">Menunggu Divalidasi</button>';
 												} else {
-													echo '<button class="btn btn-success" type="button" disabled="disabled">NOT OK</button>';
+													echo '<button class="btn btn-success" type="button" disabled="disabled">Sudah Divalidasi</button>';
 												}
 												?>
 											</div>
@@ -204,12 +211,10 @@
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Akta Kelahiran</label>
 											<div class="col-md-6 col-sm-6 ">
 												<?php
-												if ($row_berkas['status_berkas']==2){
-													echo '<button class="btn btn-success" type="button" disabled="disabled">Sudah Divalidasi</button>';
-												} else if ($row_berkas['status_berkas']==1) {
-													echo '<button class="btn btn-warning" type="button" disabled="disabled">Menunggu Validasi</button>';
+												if ($row_berkas['status_berkas']==1){
+													echo '<button class="btn btn-warning" type="button" disabled="disabled">Menunggu Divalidasi</button>';
 												} else {
-													echo '<button class="btn btn-success" type="button" disabled="disabled">NOT OK</button>';
+													echo '<button class="btn btn-success" type="button" disabled="disabled">Sudah Divalidasi</button>';
 												}
 												?>
 											</div>
@@ -218,12 +223,10 @@
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">KTP Ayah</label>
 											<div class="col-md-6 col-sm-6 ">
 												<?php
-												if ($row_berkas['status_berkas']==2){
-													echo '<button class="btn btn-success" type="button" disabled="disabled">Sudah Divalidasi</button>';
-												} else if ($row_berkas['status_berkas']==1) {
-													echo '<button class="btn btn-warning" type="button" disabled="disabled">Menunggu Validasi</button>';
+												if ($row_berkas['status_berkas']==1){
+													echo '<button class="btn btn-warning" type="button" disabled="disabled">Menunggu Divalidasi</button>';
 												} else {
-													echo '<button class="btn btn-success" type="button" disabled="disabled">NOT OK</button>';
+													echo '<button class="btn btn-success" type="button" disabled="disabled">Sudah Divalidasi</button>';
 												}
 												?>
 											</div>
@@ -232,12 +235,10 @@
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">KTP Ibu</label>
 											<div class="col-md-6 col-sm-6 ">
 												<?php
-												if ($row_berkas['status_berkas']==2){
-													echo '<button class="btn btn-success" type="button" disabled="disabled">Sudah Divalidasi</button>';
-												} else if ($row_berkas['status_berkas']==1) {
-													echo '<button class="btn btn-warning" type="button" disabled="disabled">Menunggu Validasi</button>';
+												if ($row_berkas['status_berkas']==1){
+													echo '<button class="btn btn-warning" type="button" disabled="disabled">Menunggu Divalidasi</button>';
 												} else {
-													echo '<button class="btn btn-success" type="button" disabled="disabled">NOT OK</button>';
+													echo '<button class="btn btn-success" type="button" disabled="disabled">Sudah Divalidasi</button>';
 												}
 												?>
 											</div>
@@ -246,12 +247,10 @@
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">KIP</label>
 											<div class="col-md-6 col-sm-6 ">
 												<?php
-												if ($row_berkas['status_berkas']==2){
-													echo '<button class="btn btn-success" type="button" disabled="disabled">Sudah Divalidasi</button>';
-												} else if ($row_berkas['status_berkas']==1) {
-													echo '<button class="btn btn-warning" type="button" disabled="disabled">Menunggu Validasi</button>';
+												if ($row_berkas['status_berkas']==1){
+													echo '<button class="btn btn-warning" type="button" disabled="disabled">Menunggu Divalidasi</button>';
 												} else {
-													echo '<button class="btn btn-success" type="button" disabled="disabled">NOT OK</button>';
+													echo '<button class="btn btn-success" type="button" disabled="disabled">Sudah Divalidasi</button>';
 												}
 												?>
 											</div>
@@ -260,12 +259,10 @@
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">IJAZAH / SKL</label>
 											<div class="col-md-6 col-sm-6 ">
 												<?php
-												if ($row_berkas['status_berkas']==2){
-													echo '<button class="btn btn-success" type="button" disabled="disabled">Sudah Divalidasi</button>';
-												} else if ($row_berkas['status_berkas']==1) {
-													echo '<button class="btn btn-warning" type="button" disabled="disabled">Menunggu Validasi</button>';
+												if ($row_berkas['status_berkas']==1){
+													echo '<button class="btn btn-warning" type="button" disabled="disabled">Menunggu Divalidasi</button>';
 												} else {
-													echo '<button class="btn btn-success" type="button" disabled="disabled">NOT OK</button>';
+													echo '<button class="btn btn-success" type="button" disabled="disabled">Sudah Divalidasi</button>';
 												}
 												?>
 											</div>
@@ -330,6 +327,9 @@
 					</form>
         </div>
 		</div>
+						<?php
+						}
+						?>
         <!-- /page content -->
 
 <!-- FOOTER START -->

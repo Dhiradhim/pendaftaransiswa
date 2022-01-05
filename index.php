@@ -53,13 +53,13 @@
 				
                   <div>
                     <div>
-					<?php if(empty($row_berkas['status_berkas']))
+					<?php if(empty($row_berkas['status_berkas']) OR $row_berkas['status_berkas']== 1 )
 					{
 					?>
-						<h4>Silahkan mengisi biodata, melakukan upload berkas dan upload nilai.</h4><br>
+						<h4>Silahkan mengisi biodata dan melakukan upload berkas.</h4><br>
 						<h4>Pesan : <?=$row_berkas['pesan_berkas'];?></h4>
 					<?php 
-					} else if ($row_berkas['status_berkas']==1)
+					} else if ($row_berkas['status_berkas']==2)
 					{ ?>
 						<h4>Sedang menunggu proses validasi berkas. </h4>
 						<h4>Pesan : <?=$row_berkas['pesan_berkas'];?></h4>
