@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 03, 2022 at 08:46 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.11
+-- Generation Time: Jan 05, 2022 at 05:34 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,7 +44,7 @@ CREATE TABLE `biodata` (
   `nama_ibu` varchar(100) NOT NULL,
   `pendidikan_ibu` varchar(15) NOT NULL,
   `pekerjaan_ibu` varchar(40) NOT NULL,
-  `jurusan` varchar(15) NOT NULL,
+  `jurusan` varchar(50) NOT NULL,
   `foto` text NOT NULL,
   `tahun_ajaran` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -87,7 +87,12 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`id`, `nama`, `nisn`, `password`, `hak_akses`) VALUES
-(1, 'Administrator', 1, '202cb962ac59075b964b07152d234b70', 'admin');
+(1, 'Administrator', 1, '202cb962ac59075b964b07152d234b70', 'admin'),
+(5, 'Kepala Sekolah', 2, '202cb962ac59075b964b07152d234b70', 'kepsek'),
+(6, 'Dhimas Radhito', 19931031, '202cb962ac59075b964b07152d234b70', 'siswa'),
+(7, 'a', 11, '202cb962ac59075b964b07152d234b70', 'siswa'),
+(8, 'b', 12, '202cb962ac59075b964b07152d234b70', 'siswa'),
+(9, 'c', 13, '202cb962ac59075b964b07152d234b70', 'siswa');
 
 -- --------------------------------------------------------
 
@@ -105,7 +110,7 @@ CREATE TABLE `upload_berkas` (
   `kip` text NOT NULL,
   `ijazah_depan` text NOT NULL,
   `ijazah_belakang` text NOT NULL,
-  `status_berkas` int(1) NOT NULL DEFAULT 1,
+  `status_berkas` int(1) NOT NULL,
   `pesan_berkas` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -176,19 +181,19 @@ ALTER TABLE `biodata`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `upload_berkas`
 --
 ALTER TABLE `upload_berkas`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `upload_nilai`
 --
 ALTER TABLE `upload_nilai`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
