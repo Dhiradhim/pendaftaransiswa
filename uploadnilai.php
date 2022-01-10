@@ -165,7 +165,6 @@
 								</div>
 								<div class="x_content">
 									<br />
-									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="uploadnilai_save.php">
 
 										<div class="item form-group">
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">PAI</label>
@@ -233,19 +232,24 @@
 												<input id="middle-name" class="form-control" type="text" name="mulok" disabled value="<?=$row['mulok']?>">
 											</div>
 										</div>
+										<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="uploadnilai_edit.php" enctype="multipart/form-data" >
 										<div class="ln_solid"></div>
 										<div class="item form-group">
 											<div class="col-md-8 col-sm-8">
+												<input type="hidden" name="nisn" class="form-control" value="<?=$row_user['nisn'];?>">
 												<button class="btn btn-danger" type="button" onclick="window.history.back()">Back</button>
+												<?php
+												if ($row['keputusan']=="1"){
+												echo '<button type="submit" class="btn btn-primary">Edit Data</button>';
+												}?>
 											</div>
 										</div>
+										</form>
 								</div>
 							</div>
 						</div>
 					</div>
 						<?php } ?>
-				</form>
-		
         </div>
 		</div>
         <!-- /page content -->

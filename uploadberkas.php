@@ -31,7 +31,7 @@
 					?>
 					<!-- QUERY END -->
 					<div class="row">
-						<div class="col-md-8 col-sm-8">
+						<div class="col-md-12 col-sm-12">
 							<div class="x_panel">
 								<div class="x_title">
 									<h2>Upload Berkas<small>*Format file jpg, jpeg, gif atau png</small></h2>
@@ -39,48 +39,125 @@
 								</div>
 								<div class="x_content">
 									<br />
+									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="uploadberkas_kk_save.php" enctype="multipart/form-data">
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Kartu Keluarga<span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6 ">
-												  <button class="btn btn-success" onclick=" window.open('<?=$row['kartu_keluarga']?>','_blank')"> Lihat Berkas</button>
+												  <button class="btn btn-success" onclick=" window.open('<?=$row['kartu_keluarga']?>','_blank')"> Lihat Berkas</button><br>
+												  <?php
+												  if ($row['status_berkas'] < 3)
+												  {
+												  ?>													  
+													<input type="file" name="kartu_keluarga">'
+													<button type="submit" class="btn btn-primary">Upload Ulang</button>'
+												  <?php
+												  }
+												  ?>
 											</div>
-										</div>
+										</div><div class="ln_solid"></div>
+									</form>
+									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="uploadberkas_ak_save.php" enctype="multipart/form-data">
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Akta Kelahiran<span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6 ">
-												<button class="btn btn-success" onclick=" window.open('<?=$row['akte_kelahiran']?>','_blank')"> Lihat Berkas</button>
+												<button class="btn btn-success" onclick=" window.open('<?=$row['akte_kelahiran']?>','_blank')"> Lihat Berkas</button><br>
+												<?php
+												  if ($row['status_berkas'] < 3)
+												  {
+												  ?>		
+													<input type="file" name="akte_kelahiran">
+													<button type="submit" class="btn btn-primary">Upload Ulang</button>
+												<?php
+												  }
+												  ?>
 											</div>
-										</div>
+										</div><div class="ln_solid"></div>
+									</form>
+									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="uploadberkas_ka_save.php" enctype="multipart/form-data">
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">KTP Ayah<span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6 ">
-												<button class="btn btn-success" onclick=" window.open('<?=$row['ktp_ayah']?>','_blank')"> Lihat Berkas</button>
+												<button class="btn btn-success" onclick=" window.open('<?=$row['ktp_ayah']?>','_blank')"> Lihat Berkas</button><br>
+												<?php
+												  if ($row['status_berkas'] < 3)
+												  {
+												  ?>	
+												<input type="file" name="ktp_ayah">
+												<button type="submit" class="btn btn-primary">Upload Ulang</button>
+												<?php
+												  }
+												  ?>
 											</div>
-										</div>
+										</div><div class="ln_solid"></div>
+									</form>
+									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="uploadberkas_ki_save.php" enctype="multipart/form-data">
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">KTP Ibu<span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6 ">
-												<button class="btn btn-success" onclick=" window.open('<?=$row['ktp_ibu']?>','_blank')"> Lihat Berkas</button>
+												<button class="btn btn-success" onclick=" window.open('<?=$row['ktp_ibu']?>','_blank')"> Lihat Berkas</button><br>
+												<?php
+												  if ($row['status_berkas'] < 3)
+												  {
+												  ?>	
+												<input type="file" name="ktp_ibu">
+												<button type="submit" class="btn btn-primary">Upload Ulang</button>
+												<?php
+												  }
+												  ?>
 											</div>
-										</div>
+										</div><div class="ln_solid"></div>
+									</form>
+									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="uploadberkas_kip_save.php" enctype="multipart/form-data">
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">KIP<span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6 ">
-												<button class="btn btn-success" onclick=" window.open('<?=$row['kip']?>','_blank')"> Lihat Berkas</button>
+												<button class="btn btn-success" onclick=" window.open('<?=$row['kip']?>','_blank')"> Lihat Berkas</button><br>
+												<?php
+												  if ($row['status_berkas'] < 3)
+												  {
+												  ?>	
+												  <input type="file" name="kip">
+												<button type="submit" class="btn btn-primary">Upload Ulang</button>
+												<?php
+												  }
+												  ?>
 											</div>
-										</div>
+										</div><div class="ln_solid"></div>
+									</form>
+									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="uploadberkas_id_save.php" enctype="multipart/form-data">
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Ijazah Depan<span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6 ">
-												<button class="btn btn-success" onclick=" window.open('<?=$row['ijazah_depan']?>','_blank')"> Lihat Berkas</button>
+												<button class="btn btn-success" onclick=" window.open('<?=$row['ijazah_depan']?>','_blank')"> Lihat Berkas</button><br>
+												<?php
+												  if ($row['status_berkas'] < 3)
+												  {
+												  ?>	
+												  <input type="file" name="ijazah_depan">
+												<button type="submit" class="btn btn-primary">Upload Ulang</button>
+												<?php
+												  }
+												  ?>
 											</div>
-										</div>
+										</div><div class="ln_solid"></div>
+									</form>
+									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="uploadberkas_ib_save.php" enctype="multipart/form-data">
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Ijazah Belakang/SKL<span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6 ">
-												<button class="btn btn-success" onclick=" window.open('<?=$row['ijazah_belakang']?>','_blank')"> Lihat Berkas</button>
+												<button class="btn btn-success" onclick=" window.open('<?=$row['ijazah_belakang']?>','_blank')"> Lihat Berkas</button><br>
+												<?php
+												  if ($row['status_berkas'] < 3)
+												  {
+												  ?>	
+												  <input type="file" name="ijazah_belakang">
+												<button type="submit" class="btn btn-primary">Upload Ulang</button>
+												<?php
+												  }
+												  ?>
 											</div>
 										</div>
+									</form>
 										<div class="ln_solid"></div>
 										<div class="item form-group">
 											<div class="col-md-6 col-sm-6 offset-md-3">

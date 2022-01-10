@@ -63,13 +63,13 @@
 						  <?php
 						  if ($row['keputusan']==1)
 						  {
-							  echo '<button class="btn btn-primary">MENUNGGU SELEKSI</button>';
+							  echo '<a href="hasilseleksidetail.php?nisn='.$nisn.'"><button class="btn btn-primary" >MENUNGGU SELEKSI</button>';
 						  } else if ($row['keputusan']==2)
 						  {
-							  echo '<button class="btn btn-success">LOLOS SELEKSI</button>';
+							  echo '<a href="hasilseleksidetail.php?nisn='.$nisn.'"><button class="btn btn-success">LOLOS SELEKSI</button>';
 						  } else
 						  {
-							  echo '<button class="btn btn-danger">TIDAK LOLOS SELEKSI</button>';
+							  echo '<a href="hasilseleksidetail.php?nisn='.$nisn.'"><button class="btn btn-danger">TIDAK LOLOS SELEKSI</button>';
 						  }
 						  ?>
 						  

@@ -39,7 +39,6 @@
 									</div>
 									<div class="x_content">
 										<br />
-										<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="isibiodata_save.php" enctype="multipart/form-data" >
 											<div class="item form-group">
 												<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nama Lengkap</label>
 												<div class="col-md-6 col-sm-6 ">
@@ -59,9 +58,9 @@
 												</div>
 											</div>
 											<div class="item form-group">
-												<label class="col-form-label col-md-3 col-sm-3 label-align">Tanggal Lahir </label>
-												<div class="col-md-4 xdisplay_inputx form-group row has-feedback">
-													<input class="form-control" type="text" disabled="disabled" value="<?=$row['tanggal_lahir'];?>">
+												<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Tanggal Lahir</label>
+												<div class="col-md-6 col-sm-6 ">
+													<input id="middle-name" class="form-control" type="text" name="tempat_lahir" disabled="disabled" value="<?=$row['tanggal_lahir'];?>">
 												</div>
 											</div>
 											<div class="item form-group">
@@ -93,7 +92,13 @@
 												<div class="col-md-6 col-sm-6 ">
 													<input class="form-control" type="text" disabled="disabled" value="<?=$row['jurusan'];?>">
 												</div>
-											</div>
+											</div>												
+											<div class="item form-group">
+												<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Foto</label>
+												<div class="col-md-6 col-sm-6 ">
+													<img src="<?=$row['foto'];?>" width="100px"><br>
+												</div>
+											</div>											
 									</div>
 								</div>
 							</div>
@@ -164,16 +169,15 @@
 													<input class="form-control" type="text" disabled="disabled" value="<?=$row['pekerjaan_ibu'];?>">
 												</div>
 											</div>
-
+										<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="isibiodata_edit.php" enctype="multipart/form-data" >
 											<div class="ln_solid"></div>
+											<input type="hidden" name="nisn" class="form-control" value="<?=$row_user['nisn'];?>">
 											<div class="item form-group">
 												<div class="col-md-6 col-sm-6 offset-md-3">
-													<button class="btn btn-danger" type="button" onclick="window.history.back()">Cancel</button>
-													<button class="btn btn-primary" type="reset" disabled>Reset</button>
-													<button type="submit" class="btn btn-success" disabled>Submit</button>
+													<button class="btn btn-danger" type="button" onclick="window.history.back()">Back</button>
+													<button type="submit" class="btn btn-primary">Edit Data</button>
 												</div>
 											</div>
-
 										</form>
 									</div>
 								</div>
