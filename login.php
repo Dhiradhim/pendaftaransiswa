@@ -80,9 +80,6 @@ session_start();//session starts here
               </div>
               <div>
                 <input type="password" name="password" class="form-control" placeholder="Password" required="" />
-              </div>              
-			  <div>
-                <input type="password" name="cpassword" class="form-control" placeholder="Confirm Password" required="" />
               </div>
               <div>
                 <button class="btn btn-success submit" type="submit" value="Daftar" name="daftar">DAFTAR</button>

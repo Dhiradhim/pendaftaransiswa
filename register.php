@@ -4,7 +4,7 @@ include('koneksi.php');
 $nisn=$_POST['nisn'];
 $nama_lengkap=$_POST['nama_lengkap'];
 $password=md5($_POST['password']);
-$cpassword=md5($_POST['cpassword']);
+$cpassword=md5($_POST['password']);
 $run=mysqli_query($con, "SELECT id FROM login WHERE nisn='$nisn'");  
 $xrun = mysqli_fetch_assoc($run);
 $query=mysqli_query($con, "SELECT status_ppdb FROM konfigurasi");  
