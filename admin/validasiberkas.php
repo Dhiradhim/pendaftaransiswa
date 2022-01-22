@@ -88,7 +88,7 @@
                         </tr>
 						<?php 
 						$count++;
-							}} while ($row = mysqli_fetch_assoc($query)); 
+							}} while ($row_nisn = mysqli_fetch_assoc($query_nisn)); 
 						?>
                       </tbody>
                     </table>
